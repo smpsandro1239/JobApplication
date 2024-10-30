@@ -15,6 +15,8 @@ class CreateJobApplicationsTable extends Migration
             $table->foreignId('job_id')->constrained('jobs')->onDelete('cascade');
             $table->timestamp('applied_on')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->enum('status', ['Pending', 'Accepted', 'Rejected'])->default('Pending');
+            $table->string('cv')->nullable(); // Caminho do currículo enviado pelo candidato
+            $table->text('message')->nullable(); // Mensagem opcional
         });
     }
 

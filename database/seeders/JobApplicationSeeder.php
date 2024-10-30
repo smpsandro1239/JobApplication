@@ -16,7 +16,19 @@ class JobApplicationSeeder extends Seeder
                 'applied_on' => now(),
                 'status' => 'Pending',
             ],
-            // Repita para mais 9 candidaturas
+            [
+                'user_id' => 2,
+                'job_id' => 1,
+                'applied_on' => now(),
+                'status' => 'Accepted',
+            ],
+            [
+                'user_id' => 3,
+                'job_id' => 2,
+                'applied_on' => now(),
+                'status' => 'Rejected',
+            ],
+            // Adicione mais registros conforme necessário
         ]);
     }
 }

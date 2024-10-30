@@ -22,7 +22,11 @@ class CreateJobsTable extends Migration
             $table->string('salary');
             $table->enum('gender', ['Any', 'Male', 'Female'])->default('Any');
             $table->date('application_deadline');
+            $table->date('expires_at');  // Data de caducidade da oferta
+            $table->boolean('notified_expiration_soon')->default(false); // Indica se a notificação de expiração iminente foi enviada
+            $table->date('renewable_until')->nullable(); // Data limite até quando a oferta pode ser renovada
             $table->string('region_or_remote');
+            $table->string('category')->nullable(); // Categoria da oferta
             $table->foreignId('admin_id')->constrained('admins')->onDelete('cascade');
             $table->timestamps();
         });

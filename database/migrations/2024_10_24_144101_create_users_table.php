@@ -12,7 +12,7 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('name');
             $table->text('description')->nullable();
-            $table->string('designation');
+            $table->string('designation')->nullable(); // Tornado opcional para empresas ou admins
             $table->string('password');
             $table->string('email')->unique();
             $table->string('facebook')->nullable();
@@ -20,6 +20,13 @@ class CreateUsersTable extends Migration
             $table->string('twitter')->nullable();
             $table->string('picture')->nullable();
             $table->string('cv')->nullable();
+
+            // Campos adicionados para novos requisitos
+            $table->enum('role', ['aluno', 'empresa', 'admin'])->default('aluno');
+            $table->string('area_interesse')->nullable(); // Específico para alunos
+            $table->string('ano_conclusao')->nullable(); // Específico para alunos
+            $table->json('company_details')->nullable(); // Dados JSON para empresas
+
             $table->timestamps();
         });
     }

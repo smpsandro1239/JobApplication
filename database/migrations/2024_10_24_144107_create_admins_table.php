@@ -13,6 +13,9 @@ class CreateAdminsTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->enum('role', ['superadmin', 'admin'])->default('admin'); // Diferenciar superadmin de admins normais
+            $table->timestamp('last_login_at')->nullable(); // Última vez que o admin fez login
+            $table->string('last_login_ip')->nullable();    // IP do último login
             $table->timestamps();
         });
     }

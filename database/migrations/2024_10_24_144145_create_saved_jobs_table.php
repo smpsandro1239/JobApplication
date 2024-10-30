@@ -14,6 +14,7 @@ class CreateSavedJobsTable extends Migration
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->foreignId('job_id')->constrained('jobs')->onDelete('cascade');
             $table->timestamp('saved_on')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->text('note')->nullable(); // Campo opcional para uma nota ou comentário sobre o emprego salvo
         });
     }
 
