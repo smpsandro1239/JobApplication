@@ -49,43 +49,47 @@ O projeto utiliza as seguintes tecnologias:
     Entre no diretório do projeto:
     ```
 
-bash
-Copiar código
+```bash
 cd JobApplication
+ ```
 Instale as dependências do PHP e do Node.js:
 
-bash
-Copiar código
+```bash
 composer install
 npm install
+```
 Crie o arquivo .env e configure o banco de dados:
 
-bash
-Copiar código
+```bash
 cp .env.example .env
+```
+```bash
 php artisan key:generate
+```
 Configure as variáveis de ambiente no arquivo .env para o banco de dados, por exemplo:
 
+```bash
 makefile
-Copiar código
+```
+```bash
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
 DB_DATABASE=nome_do_banco
 DB_USERNAME=usuario
 DB_PASSWORD=senha
-
+```
 
 Execute as migrações para criar as tabelas no banco de dados:
 
-bash
-Copiar código
+```bash
 php artisan migrate
+```
 Inicie o servidor local:
 
-bash
-Copiar código
+```bash
 php artisan serve
+```
 Acesse a aplicação em http://localhost:8000.
 
 Contribuição
