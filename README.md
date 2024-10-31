@@ -59,6 +59,11 @@ Instale as dependências do PHP e do Node.js:
 composer install
 npm install
 ```
+Se o comando não funcionar para windows instalar o composer com esse link: 
+Windows Installer:
+```bash
+https://getcomposer.org/download/
+```
 Crie o arquivo .env e configure o banco de dados:
 
 ```bash
