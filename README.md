@@ -46,9 +46,10 @@ O projeto utiliza as seguintes tecnologias:
 
     ```bash
     git clone https://github.com/smpsandro1239/JobApplication.git
-    Entre no diretório do projeto:
+    
     ```
 
+Entre no diretório do projeto:
 ```bash
 cd JobApplication
  ```
