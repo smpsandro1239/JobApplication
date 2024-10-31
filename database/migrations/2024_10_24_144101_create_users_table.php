@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             // Campos adicionados para novos requisitos
             $table->enum('role', ['aluno', 'empresa', 'admin'])->default('aluno');
             $table->string('area_interesse')->nullable(); // Específico para alunos
-            $table->string('ano_conclusao')->nullable(); // Específico para alunos
+            $table->integer('graduation_year')->nullable(); // Renomeado para 'graduation_year' e definido como inteiro
             $table->json('company_details')->nullable(); // Dados JSON para empresas
 
             $table->timestamps();

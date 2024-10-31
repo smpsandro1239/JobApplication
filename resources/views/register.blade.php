@@ -98,28 +98,55 @@
               <div id="aluno_fields" style="display: none;">
                 <div class="form-group">
                   <label for="telefone">Telefone</label>
-                  <input type="text" class="form-control" id="telefone" name="telefone">
-                </div>
-                <div class="form-group">
-                  <label for="foto">Foto do Aluno</label>
-                  <input type="file" class="form-control" id="foto" name="foto" accept="image/*">
+                  <input type="text" class="form-control" id="telefone" name="telefone" required>
                 </div>
                 <div class="form-group">
                   <label for="curso">Curso</label>
-                  <select class="form-control" id="curso" name="curso">
+                  <select class="form-control" id="curso" name="curso" required>
+                    <option value="">Selecione...</option>
                     <option value="Animação Sociocultural">Animação Sociocultural</option>
-                    <!-- Adicione outros cursos conforme necessário -->
+                    <option value="Cabeleireiro">Cabeleireiro</option>
+                    <option value="Comércio e Vendas">Comércio e Vendas</option>
+                    <option value="Cozinha / Pastelaria">Cozinha / Pastelaria</option>
+                    <option value="Design Gráfico">Design Gráfico</option>
+                    <option value="Desporto">Desporto</option>
+                    <option value="Eletrónica Automação e Computadores">Eletrónica Automação e Computadores</option>
+                    <option value="Eletrotecnia">Eletrotecnia</option>
+                    <option value="Estética">Estética</option>
+                    <option value="Fiél de Armazém">Fiél de Armazém</option>
+                    <option value="Gerontologia">Gerontologia</option>
+                    <option value="Instalações Elétricas">Instalações Elétricas</option>
+                    <option value="Limpeza">Limpeza</option>
+                    <option value="Mecatrónica Automóvel">Mecatrónica Automóvel</option>
+                    <option value="Multimédia">Multimédia</option>
+                    <option value="Ótica Ocular">Ótica Ocular</option>
+                    <option value="Outros">Outros</option>
+                    <option value="Padaria / Pastelaria">Padaria / Pastelaria</option>
+                    <option value="Produção Metalomecânica">Produção Metalomecânica</option>
+                    <option value="Programação e Maquinação em CNC">Programação e Maquinação em CNC</option>
+                    <option value="Programação Informática">Programação Informática</option>
+                    <option value="Receção / Assistente Administrativo">Receção / Assistente Administrativo</option>
+                    <option value="Refrigeração e Climatização">Refrigeração e Climatização</option>
+                    <option value="Restaurante / Bar">Restaurante / Bar</option>
                   </select>
                 </div>
                 <div class="form-group">
                   <label for="ano_conclusao">Ano de Conclusão dos Estudos</label>
-                  <input type="text" class="form-control" id="ano_conclusao" name="ano_conclusao">
+                  <input type="number" class="form-control" id="ano_conclusao" name="graduation_year" min="{{ now()->year }}" max="{{ now()->year + 3 }}" required>
+                  @error('graduation_year')
+                  <span class="text-danger">{{ $message }}</span>
+                  @enderror
                 </div>
                 <div class="form-group">
-                  <label for="curriculo">Currículo</label>
+                  <label for="designation">Designação (opcional)</label>
+                  <input type="text" class="form-control" id="designation" name="designation">
+                </div>
+                <div class="form-group">
+                  <label for="curriculo">Currículo (opcional)</label>
                   <input type="file" class="form-control" id="curriculo" name="curriculo" accept=".pdf,.doc,.docx">
                 </div>
               </div>
+
 
               <!-- Campos específicos para Empresas -->
               <div id="empresa_fields" style="display: none;">

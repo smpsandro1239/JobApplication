@@ -187,25 +187,47 @@ class UserController extends Controller
 
     public function save(Request $request)
     {
-        // Validate the form data
+        // Validar os dados do formulário
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed', // The confirmed rule checks for password_confirmation
-            'designation' => 'required|string|max:255' // Ensure 'designation' is provided
+            'password' => 'required|string|min:6|confirmed',
+            'telefone' => 'required|string|max:15',
+            'curso' => 'required|string|max:255',
+            'graduation_year' => 'required|integer|gt:1900|lt:' . (date('Y') + 4),
+            'designation' => 'nullable|string|max:255',
+            'curriculo' => 'nullable|file|mimes:pdf,doc,docx|max:2048', // Ajustando a validação para o ano de conclusão
+        ], [
+            'graduation_year.required' => 'O ano de conclusão é obrigatório.',
+            'graduation_year.integer' => 'O ano de conclusão deve ser um número.',
+            'graduation_year.digits' => 'O ano de conclusão deve ter 4 dígitos.',
+            'graduation_year.gt' => 'O ano de conclusão deve ser superior a 1900.',
+            'graduation_year.lt' => 'O ano de conclusão não pode ser maior que ' . (date('Y') + 3) . '.',
         ]);
 
-        // Create a new user record
+        // Criar um novo registro de usuário
         $user = new User();
         $user->name = $validatedData['name'];
         $user->email = $validatedData['email'];
-        $user->password = Hash::make($validatedData['password']);  // Hash the password
-        $user->designation = $validatedData['designation']; // Set designation
+        $user->password = Hash::make($validatedData['password']);  // Hash a senha
+        $user->telefone = $validatedData['telefone'];
+        $user->curso = $validatedData['curso'];
+        $user->ano_conclusao = $validatedData['graduation_year'];
+        $user->designation = $validatedData['designation'];
+
+        if ($request->hasFile('curriculo')) {
+            $curriculoPath = $request->file('curriculo')->store('curriculos', 'public');
+            $user->cv = $curriculoPath;
+        }
+
         $user->save();
 
+
         // Redirect or show success message
-        return redirect()->route('register')->with('success', 'Registration successful');
+        return redirect()->route('register')->with('success', 'Registro realizado com sucesso.');
     }
+
+
 
     public function check(Request $request)
     {
