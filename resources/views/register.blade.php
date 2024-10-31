@@ -132,7 +132,7 @@
                 </div>
                 <div class="form-group">
                   <label for="ano_conclusao">Ano de Conclusão dos Estudos</label>
-                  <input type="number" class="form-control" id="ano_conclusao" name="graduation_year" min="{{ now()->year }}" max="{{ now()->year + 3 }}" required>
+                  <input type="number" class="form-control" id="ano_conclusao" name="graduation_year" min="{{ now()->year-100 }}" max="{{ now()->year + 3 }}" required>
                   @error('graduation_year')
                   <span class="text-danger">{{ $message }}</span>
                   @enderror

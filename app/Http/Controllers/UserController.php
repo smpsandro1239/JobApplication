@@ -194,7 +194,7 @@ class UserController extends Controller
             'password' => 'required|string|min:6|confirmed',
             'telefone' => 'required|string|max:15',
             'curso' => 'required|string|max:255',
-            'graduation_year' => 'required|integer|gt:1900|lt:' . (date('Y') + 4),
+            'graduation_year' => 'required|integer|digits:4|lt:' . (date('Y') + 4),
             'designation' => 'nullable|string|max:255',
             'curriculo' => 'nullable|file|mimes:pdf,doc,docx|max:2048', // Ajustando a validação para o ano de conclusão
         ], [
