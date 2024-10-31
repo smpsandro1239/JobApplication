@@ -1,15 +1,15 @@
 # JobApplication
 
-Este repositório contém um sistema de aplicação de emprego desenvolvido em Laravel, com interface administrativa para gerenciar ofertas de emprego e acompanhar candidaturas.
+Este repositório contém um sistema de procura de emprego desenvolvido em Laravel, com uma interface administrativa para administrar oportunidades de emprego e acompanhar as candidaturas.
 
 ## Visão Geral
 
-O **JobApplication** é uma aplicação web para a gestão de vagas de emprego e acompanhamento de candidaturas, onde administradores podem criar e editar ofertas de trabalho, e os candidatos podem acompanhar o status de suas candidaturas.
+O **JobApplication** é uma aplicação web para a gestão de oportunidades de emprego e acompanhamento de candidaturas, onde administradores podem criar e editar oportunidades de emprego, e os candidatos podem acompanhar o status de suas candidaturas.
 
 ## Funcionalidades
 
 -   **Login de Administradores**: Autenticação para acesso seguro ao painel administrativo.
--   **Gestão de Vagas**: Admins podem criar, editar e excluir vagas de emprego.
+-   **Gestão de oportunidades de emprego**: Admins podem criar, editar e excluir oportunidades de emprego.
 -   **Gestão de Candidaturas**: Atualização do status das candidaturas (Aceite, Pendente ou Rejeitado).
 -   **Notificações**: Notificação de sucesso e falha em operações para feedback ao usuário.
 -   **Upload de Imagens**: Admins podem fazer upload de imagens para cada vaga.
@@ -74,6 +74,8 @@ DB_PORT=3306
 DB_DATABASE=nome_do_banco
 DB_USERNAME=usuario
 DB_PASSWORD=senha
+
+
 Execute as migrações para criar as tabelas no banco de dados:
 
 bash
